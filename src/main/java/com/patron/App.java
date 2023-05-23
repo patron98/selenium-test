@@ -25,5 +25,12 @@ public class App
         password.sendKeys("SuperSecretPassword!");
         login.click();
 
+        WebElement successBanner = webDriver.findElement(By.cssSelector("div[class='flash success']"));
+        boolean isBannerDisplayed = successBanner.isDisplayed();
+
+        System.out.println("Success banner is " + (isBannerDisplayed ? "displayed!" : "not displayed."));
+
+        webDriver.close();
+
     }
 }
