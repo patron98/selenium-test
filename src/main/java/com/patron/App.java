@@ -26,8 +26,17 @@ public class App
         login.click();
 
         WebElement successBanner = webDriver.findElement(By.cssSelector("div[class='flash success']"));
+        String bannerTextCheck = """
+                You logged into a secure area!
+                ×""";
+        String wrongText = "this is wrong";
+        String bannerText = successBanner.getText();
+        boolean textCheck = bannerTextCheck.equals(bannerText);
+        boolean wrongCheck = bannerTextCheck.equals(wrongText);
         boolean isBannerDisplayed = successBanner.isDisplayed();
 
+        System.out.println("The banner text is " + (wrongCheck ? "equal!" : "not equal"));
+        System.out.println("The banner text is " + (textCheck ? "equal!" : "not equal"));
         System.out.println("Success banner is " + (isBannerDisplayed ? "displayed!" : "not displayed."));
 
         webDriver.close();
