@@ -40,6 +40,13 @@ public class AppTest {
     }
 
     @Test
+    public void failedBannerText(){
+        WebElement successBanner = webDriver.findElement(By.cssSelector("div[class='flash success']"));
+        String bannerText = successBanner.getText();
+        Assert.assertEquals("The banner text is incorrect", "this is the wrong text", bannerText);
+    }
+
+    @Test
     public void testBannerDisplayed() {
         WebElement successBanner = webDriver.findElement(By.cssSelector("div[class='flash success']"));
         boolean isBannerDisplayed = successBanner.isDisplayed();
